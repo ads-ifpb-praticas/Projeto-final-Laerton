@@ -5,6 +5,7 @@
  */
 package br.edu.ifpb.projetofinal.servlet;
 
+import br.edu.ifpb.projetofinal.anotacoes.CoberturaIgnore;
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -18,11 +19,13 @@ import javax.servlet.annotation.WebListener;
 public class ServletInicializer implements ServletContextListener {
     
     @Override
+    @CoberturaIgnore
     public void contextInitialized(ServletContextEvent sce) {
         sce.getServletContext().addServlet("*.xhtml", FacesServlet.class);
     }
 
     @Override
+    @CoberturaIgnore
     public void contextDestroyed(ServletContextEvent sce) {
     }
     

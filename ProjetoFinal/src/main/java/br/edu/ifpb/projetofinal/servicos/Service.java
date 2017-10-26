@@ -5,6 +5,7 @@
  */
 package br.edu.ifpb.projetofinal.servicos;
 
+import br.edu.ifpb.projetofinal.exceptions.EncomendaException;
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public interface Service<T> extends Serializable{
      * @param o - Objeto a ser salvo
      * @return - Objeto apos persistido
      */
-    T salvar(T o);
+    T salvar(T o) throws EncomendaException;
     /***
      * Exclui um objeto da base de dados
      * @param o - Objeto a ser excluido

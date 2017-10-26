@@ -1,6 +1,7 @@
 package br.edu.ifpb.projetofinal.producer;
 
 
+import br.edu.ifpb.projetofinal.anotacoes.CoberturaIgnore;
 import java.sql.Date;
 import java.time.LocalDate;
 
@@ -15,6 +16,7 @@ import java.time.LocalDate;
  * 
  * @author laerton
  */
+
 public interface AttributeConverter<T,Q> {
     /***
      * Converte de LocalDate para SqlDate

@@ -40,10 +40,11 @@ public class DAOEncomenda implements IDAO<Encomenda>{
     public void excluir(Encomenda encomenda) {
         try {
             em.getTransaction().begin();
-            em.remove(encomenda.getId());
+            em.remove(encomenda);
             em.getTransaction().commit();
             
         } catch (Exception e) {
+            
             em.getTransaction().rollback();
         }
     }
