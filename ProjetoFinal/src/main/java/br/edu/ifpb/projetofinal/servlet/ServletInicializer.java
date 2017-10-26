@@ -21,7 +21,7 @@ public class ServletInicializer implements ServletContextListener {
     @Override
     @CoberturaIgnore
     public void contextInitialized(ServletContextEvent sce) {
-        sce.getServletContext().addServlet("*.xhtml", FacesServlet.class);
+            sce.getServletContext().addServlet("*.xhtml", FacesServlet.class);
     }
 
     @Override

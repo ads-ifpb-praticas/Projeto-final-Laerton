@@ -5,13 +5,17 @@
  */
 package br.edu.ifpb.projetofinal.entidade;
 
+import br.edu.ifpb.projetofinal.anotacoes.CoberturaIgnore;
 import java.time.LocalDate;
+import java.time.Period;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.TableGenerator;
+import javax.persistence.Transient;
+
 
 /**
  *
@@ -74,13 +78,21 @@ public class Encomenda {
     public void setDtEntrega(LocalDate dtEntrega) {
         this.dtEntrega = dtEntrega;
     }
-
-   
     
-   
-   
-   
-   
-   
+    
+    @CoberturaIgnore
+    public String getColor(){
+        Period periodo = Period.between(LocalDate.now(), this.dtEntrega);
+        int p = periodo.getDays();
+        if (p >=3 && p<=5){
+            return "Yello";
+        }else if (p > 5){
+            return "red";
+        }else if (p < 3){
+            return "green";
+        }
+        return null;
+    }
+
     
 }

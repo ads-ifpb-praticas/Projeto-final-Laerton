@@ -7,6 +7,7 @@ package br.edu.ifpb.projetofinal.validadores;
 
 import br.edu.ifpb.projetofinal.entidade.Encomenda;
 import br.edu.ifpb.projetofinal.exceptions.EncomendaException;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.regex.Matcher;
@@ -16,16 +17,16 @@ import java.util.regex.Pattern;
  *
  * @author laerton
  */
-public class ValidaEncomenda {
+public class ValidaEncomenda implements Serializable{
     
     private final  static int DIAS = 6;
     
-    public static boolean validaEncomenda (Encomenda encomenda,LocalDate dtEncomenda) throws EncomendaException{
+    public boolean validaEncomenda (Encomenda encomenda,LocalDate dtEncomenda) throws EncomendaException{
         return (validaDescricao(encomenda.getDescricao()) && validaTitulo(encomenda.getTitulo()) && validaDtEntrega(encomenda.getDtEntrega(), dtEncomenda));
     }
             
     
-    public static boolean validaTitulo (String titulo) throws EncomendaException{
+    public boolean validaTitulo (String titulo) throws EncomendaException{
         if (titulo ==null){
             throw  new EncomendaException("Titulo nao pode ser nulo.");
         }
@@ -41,7 +42,7 @@ public class ValidaEncomenda {
         return true;
     }
     
-    public static boolean validaDescricao (String descricao)throws EncomendaException{
+    public boolean validaDescricao (String descricao)throws EncomendaException{
         if (descricao ==null){
             throw  new EncomendaException("Descricao nao pode ser nulo.");
         }
@@ -63,7 +64,7 @@ public class ValidaEncomenda {
      * @return - Booleano de confirmacao
      * @throws EncomendaException - Caso a difrenca seja diferente de 6
      */
-    public static boolean validaDtEntrega (LocalDate dtEntrega, LocalDate dtCompara )throws EncomendaException{
+    public boolean validaDtEntrega (LocalDate dtEntrega, LocalDate dtCompara )throws EncomendaException{
         if (dtEntrega == null){
             throw new EncomendaException("Data de enttrega nao pode ser nula");
         }

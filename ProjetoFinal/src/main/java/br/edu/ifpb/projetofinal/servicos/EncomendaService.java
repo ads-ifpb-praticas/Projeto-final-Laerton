@@ -11,8 +11,7 @@ import br.edu.ifpb.projetofinal.exceptions.EncomendaException;
 import br.edu.ifpb.projetofinal.persistencia.IDAO;
 import java.util.List;
 import javax.inject.Inject;
-import br.edu.ifpb.projetofinal.qualificadores.EncomendaDAO;
-import br.edu.ifpb.projetofinal.validadores.ValidaEncomenda;
+
 import java.time.LocalDate;
 
 /**
@@ -21,7 +20,6 @@ import java.time.LocalDate;
  */
 public class EncomendaService implements Service<Encomenda>{
     @Inject
-    @EncomendaDAO
     private IDAO<Encomenda> dao;
     private final int DIAS = 6;
 
@@ -36,13 +34,14 @@ public class EncomendaService implements Service<Encomenda>{
     
     @Override
     public Encomenda salvar(Encomenda o) throws EncomendaException{
-        ValidaEncomenda.validaDescricao(o.getDescricao());
-        ValidaEncomenda.validaTitulo(o.getTitulo());
-        ValidaEncomenda.validaDtEntrega(o.getDtEntrega(), LocalDate.now());
+        //ValidaEncomenda.validaDescricao(o.getDescricao());
+        //ValidaEncomenda.validaTitulo(o.getTitulo());
+        //ValidaEncomenda.validaDtEntrega(o.getDtEntrega(), LocalDate.now());
         if (o.getId() == 0){
             o.setDtEntrega(LocalDate.now().plusDays(DIAS));//Processo que garante que 
             //todas as encomendas tem o mesmo prazo.
         }
+        
         return dao.salvar(o);
     }
 

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:body>
+        <ui:composition template="index.xhtml">
+            <ui:define name="content">
+                <section>
+                    <h1>Adicionar Produto</h1>
+                    <h:form enctype="multipart/form-data" id="form">
+                        <label>
+                            Nome: 
+                            <h:inputText value="#{produtoController.produto.nome}" autocomplete="on" required="true"/>
+                        </label><br/>
+                        <label>
+                            Categoria: 
+                            <h:inputText value="#{produtoController.produto.categoria.nome}" autocomplete="on" required="true"/>
+                        </label>
+                        <br/>
+                        <label>
+                            Descricao: 
+                            <h:inputText value="#{produtoController.produto.descricao}" autocomplete="on" required="true"/>
+                        </label>
+                        <label><br/>
+                            Marca: 
+                            <h:inputText value="#{produtoController.produto.marca}" autocomplete="on" required="true"/>
+                        </label>
+                        <br/>
+                        <label>
+                            Preço unitario: 
+                            <h:inputText value="#{produtoController.produto.unitario}" autocomplete="on" required="true"/>
+                        </label>
+                        <br/>
+                        <label>
+                            Foto:  
+                            <h:inputFile value="#{produtoController.foto}" />
+                        </label>
+                        <br/>
+                        <h:commandButton value="Salvar" action="#{produtoController.adicionarProduto()}" />
+                    </h:form><br/>
+                    <h:form>
+                        <h:commandLink action="lista-produtos.xhtml" value="Ver Cadastrados"/>
+                    </h:form>
+                </section>
+                <br/>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

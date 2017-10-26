@@ -7,6 +7,7 @@ package br.edu.ifpb.projetofinal.Integracao;
 
 import br.edu.ifpb.projetofinal.entidade.Encomenda;
 import br.edu.ifpb.projetofinal.persistencia.DAOEncomenda;
+import br.edu.ifpb.projetofinal.producer.EntityManagerProducer;
 import java.time.LocalDate;
 import java.util.List;
 import org.junit.After;
@@ -34,8 +35,8 @@ public class TestDAOEncomenda {
     @Before
     public void setUp() 
     {
-        dao = new DAOEncomenda();
-        enc = new Encomenda(0, "Compra de pastel", "200 pasteis", LocalDate.now().plusDays(6));
+        dao = new DAOEncomenda(EntityManagerProducer.getEntityManager());
+        enc = new Encomenda(0,  "Compra de pastel", "200 pasteis", LocalDate.now().plusDays(6));
         enc1 = new Encomenda(0, "Compra de pastel", "200 pasteis", LocalDate.now().plusDays(6));
         enc2 = new Encomenda(0, "Compra de pastel", "200 pasteis", LocalDate.now().plusDays(6));
         enc3 = new Encomenda(0, "Compra de pastel", "200 pasteis", LocalDate.now().plusDays(6));

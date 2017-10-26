@@ -9,6 +9,8 @@ import br.edu.ifpb.projetofinal.anotacoes.CoberturaIgnore;
 import br.edu.ifpb.projetofinal.entidade.Encomenda;
 import br.edu.ifpb.projetofinal.exceptions.EncomendaException;
 import br.edu.ifpb.projetofinal.servicos.Service;
+import java.io.Serializable;
+import java.time.LocalDate;
 
 import java.util.List;
 import java.util.logging.Level;
@@ -23,10 +25,11 @@ import javax.inject.Named;
  */
 @Named
 @RequestScoped
-public class EcomendaController {
+public class EncomendaController implements Serializable{
     @Inject
     private Encomenda encomenda;
     private String mensagemErro = "";
+    
     @Inject
     private Service<Encomenda> encomendaService;
     
@@ -36,20 +39,23 @@ public class EcomendaController {
      */
     public String addEncomenda() {
         try {
-            encomendaService.salvar(encomenda);
+            encomenda = encomendaService.salvar(encomenda);
+            
         } catch (EncomendaException ex) {
             mensagemErro= ex.getMessage();
         }
-        mensagemErro = "Econmenda cadastrada com suscesso";
+        mensagemErro = "Econmenda cadastrada com suscesso.";
         encomenda =new Encomenda();
         return null;
     }
 
-    public EcomendaController(Service<Encomenda> encomendaService) {
+    
+    
+    public EncomendaController(Service<Encomenda> encomendaService) {
         this.encomendaService = encomendaService;
     }
 
-    public EcomendaController() {
+    public EncomendaController() {
     }
 
     @CoberturaIgnore
@@ -69,6 +75,8 @@ public class EcomendaController {
     
     @CoberturaIgnore
     public void setEncomenda(Encomenda encomenda) {
+        
+        mensagemErro = "";
         this.encomenda = encomenda;
     }
     /***
@@ -77,6 +85,9 @@ public class EcomendaController {
      */
     public List<Encomenda> getAllEncomendas(){
         mensagemErro = "";
+        for (Encomenda encomenda1 : encomendaService.getAll()) {
+            System.out.println(encomenda1.getTitulo());
+        }
         return  encomendaService.getAll();
     }
     /**

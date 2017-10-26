@@ -5,9 +5,10 @@
  */
 package br.edu.ifpb.projetofinal.persistencia;
 
-import br.edu.ifpb.projetofinal.producer.FactoryEntetyManagerProjeto;
+
 import br.edu.ifpb.projetofinal.entidade.Encomenda;
 import java.util.List;
+import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -17,7 +18,16 @@ import javax.persistence.TypedQuery;
  */
 public class DAOEncomenda implements IDAO<Encomenda>{
     
-    private EntityManager em = FactoryEntetyManagerProjeto.getInstance().getEMF().createEntityManager();
+    @Inject
+    private EntityManager em ;
+
+    public DAOEncomenda(EntityManager em) {
+        this.em = em;
+    }
+
+    public DAOEncomenda() {
+    }
+    
     
     @Override
     public Encomenda salvar(Encomenda encomenda) {

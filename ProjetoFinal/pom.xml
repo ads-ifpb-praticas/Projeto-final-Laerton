@@ -20,6 +20,12 @@
             <artifactId>h2</artifactId>
             <version>1.4.191</version>
         </dependency>
+        <!--Implementacao do CDI-->
+        <dependency>
+            <groupId>org.jboss.weld.servlet</groupId>
+            <artifactId>weld-servlet</artifactId>
+            <version>2.4.5.Final</version>
+        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
@@ -43,6 +49,11 @@
             <artifactId>eclipselink</artifactId>
             <version>2.5.2</version>
             <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.faces</artifactId>
+            <version>2.3.2</version>
         </dependency>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>

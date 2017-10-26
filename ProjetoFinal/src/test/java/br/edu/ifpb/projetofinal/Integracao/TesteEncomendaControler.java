@@ -5,7 +5,7 @@
  */
 package br.edu.ifpb.projetofinal.Integracao;
 
-import br.edu.ifpb.projetofinal.controles.EcomendaController;
+import br.edu.ifpb.projetofinal.controles.EncomendaController;
 import br.edu.ifpb.projetofinal.entidade.Encomenda;
 import br.edu.ifpb.projetofinal.exceptions.EncomendaException;
 import br.edu.ifpb.projetofinal.persistencia.DAOEncomenda;
@@ -33,7 +33,7 @@ public class TesteEncomendaControler {
     @Mock
     private DAOEncomenda dao;
     private EncomendaService es;
-    private EcomendaController ec = new EcomendaController();
+    private EncomendaController ec = new EncomendaController();
     
     public TesteEncomendaControler() {
     }
@@ -56,7 +56,7 @@ public class TesteEncomendaControler {
         when(dao.getAll()).thenReturn(lista);
         when(dao.salvar(any(Encomenda.class))).thenReturn(enc);
         es =new EncomendaService(dao);
-        ec = new EcomendaController(es);
+        ec = new EncomendaController(es);
         ec.setEncomenda(enc4);
     }
     
