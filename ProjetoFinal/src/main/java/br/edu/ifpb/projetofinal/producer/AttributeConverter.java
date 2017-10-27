@@ -1,7 +1,7 @@
 package br.edu.ifpb.projetofinal.producer;
 
 
-import br.edu.ifpb.projetofinal.anotacoes.CoberturaIgnore;
+
 import java.sql.Date;
 import java.time.LocalDate;
 

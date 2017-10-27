@@ -37,7 +37,7 @@ public class EncomendaService implements Service<Encomenda>{
         //ValidaEncomenda.validaDescricao(o.getDescricao());
         //ValidaEncomenda.validaTitulo(o.getTitulo());
         //ValidaEncomenda.validaDtEntrega(o.getDtEntrega(), LocalDate.now());
-        if (o.getId() == 0){
+        if (o.getId() == 0 && o.getDtEntrega() == null){
             o.setDtEntrega(LocalDate.now().plusDays(DIAS));//Processo que garante que 
             //todas as encomendas tem o mesmo prazo.
         }

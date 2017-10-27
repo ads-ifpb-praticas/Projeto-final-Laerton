@@ -23,6 +23,12 @@
                             Descricao: 
                             <h:inputText value="#{encomendaController.encomenda.descricao}" autocomplete="on" required="true"/>
                         </label>
+                        <label>
+                            Previsao de entrega: 
+                            <h:inputText id="inputData" value="#{encomendaController.encomenda.dtEntrega}" autocomplete="on" required="true">
+                                <f:converter converterId="localDateFacesConverter" for="inputData"/>
+                            </h:inputText>
+                        </label>
                         <h:commandButton value="Salvar" action="#{encomendaController.addEncomenda()}" />
                     </h:form>
                 </section>
@@ -41,7 +47,9 @@
                         </h:column>
                         <h:column>
                             <f:facet name="header">Data de previsao de entrega entrega</f:facet>
-                            <h:outputLabel value="#{encomenda.dtEntrega.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))}" >
+                            <h:outputLabel id="outputData" value = "#{encomenda.dtEntrega}" style="color:#{encomenda.color}">
+                                <f:converter converterId="localDateFacesConverter" for="outputData"/>
+                            </h:outputLabel>
                         </h:column>
                         <h:column>
                             <h:commandButton value="Editar" action="#{encomendaController.setEncomenda(encomenda)}"/>

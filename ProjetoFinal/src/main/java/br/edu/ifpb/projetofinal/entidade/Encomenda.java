@@ -6,6 +6,7 @@
 package br.edu.ifpb.projetofinal.entidade;
 
 import br.edu.ifpb.projetofinal.anotacoes.CoberturaIgnore;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.Period;
 import javax.persistence.Column;
@@ -14,7 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.TableGenerator;
-import javax.persistence.Transient;
+
 
 
 /**
@@ -23,7 +24,7 @@ import javax.persistence.Transient;
  */
 @Entity
 @TableGenerator(name = "ENCOMENDA_SEQ", allocationSize = 1)
-public class Encomenda {
+public class Encomenda implements Serializable {
    @Id
    @GeneratedValue(generator = "ENCOMENDA_SEQ", 
             strategy = GenerationType.TABLE)
@@ -85,13 +86,13 @@ public class Encomenda {
         Period periodo = Period.between(LocalDate.now(), this.dtEntrega);
         int p = periodo.getDays();
         if (p >=3 && p<=5){
-            return "Yello";
+            return "Yellow";
         }else if (p > 5){
-            return "red";
-        }else if (p < 3){
             return "green";
+        }else {
+            return "red";
         }
-        return null;
+        
     }
 
     

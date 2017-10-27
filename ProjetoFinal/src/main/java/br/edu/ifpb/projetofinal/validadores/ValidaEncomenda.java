@@ -22,7 +22,7 @@ public class ValidaEncomenda implements Serializable{
     private final  static int DIAS = 6;
     
     public boolean validaEncomenda (Encomenda encomenda,LocalDate dtEncomenda) throws EncomendaException{
-        return (validaDescricao(encomenda.getDescricao()) && validaTitulo(encomenda.getTitulo()) && validaDtEntrega(encomenda.getDtEntrega(), dtEncomenda));
+        return validaDescricao(encomenda.getDescricao()) && validaTitulo(encomenda.getTitulo()) && validaDtEntrega(encomenda.getDtEntrega(), dtEncomenda);
     }
             
     

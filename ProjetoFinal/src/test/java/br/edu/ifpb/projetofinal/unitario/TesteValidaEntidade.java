@@ -105,6 +105,22 @@ public class TesteValidaEntidade {
         assertTrue(validaEncomenda.validaEncomenda(enc2, LocalDate.now()));
     }
     
+    @Test
+    public void testaCorVermelha(){
+        enc5 = new Encomenda(1, "Prepara pasteis", "Prepara 500 pasteis", LocalDate.now().plusDays(2));
+        assertEquals( "red", enc5.getColor());
+    }
     
+    @Test
+    public void testaCorAmarela(){
+        enc5 = new Encomenda(1, "Prepara pasteis", "Prepara 500 pasteis", LocalDate.now().plusDays(5));
+        assertEquals( "Yellow", enc5.getColor());
+    }
+    
+     @Test
+    public void testaCorVerde(){
+        enc5 = new Encomenda(1, "Prepara pasteis", "Prepara 500 pasteis", LocalDate.now().plusDays(6));
+        assertEquals( "green", enc5.getColor());
+    }
     
 }

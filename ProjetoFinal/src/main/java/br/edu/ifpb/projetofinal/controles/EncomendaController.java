@@ -10,11 +10,7 @@ import br.edu.ifpb.projetofinal.entidade.Encomenda;
 import br.edu.ifpb.projetofinal.exceptions.EncomendaException;
 import br.edu.ifpb.projetofinal.servicos.Service;
 import java.io.Serializable;
-import java.time.LocalDate;
-
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
